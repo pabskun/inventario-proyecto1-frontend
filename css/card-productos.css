@@ -1,0 +1,19 @@
+#contenedor-cards {
+    display: flow-root;
+    padding-top: 40px;
+}
+
+.card {
+    background: #c3c3c3;
+    border: 2px solid #e84393;
+    width: 23%;
+    margin: 0 1% 0 1%;
+    float: left;
+    box-sizing: border-box;
+}
+
+.card header {
+    height: 150px;
+    background-image: url('../imgs/tomato.jpg');
+    background-size: cover;
+}

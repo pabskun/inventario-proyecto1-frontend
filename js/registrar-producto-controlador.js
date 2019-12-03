@@ -7,6 +7,39 @@ const input_descripcion = document.querySelector('#txt-descripcion');
 const btn_guardar = document.querySelector('#btn-guardar');
 
 
+let validar = () => {
+    let error = false;
+
+    if (input_codigo.value == '') {
+        error = true;
+        input_codigo.classList.add('error');
+    } else {
+        input_codigo.classList.remove('error');
+    };
+
+    if (input_nombre.value == '') {
+        error = true;
+        input_nombre.classList.add('error');
+    } else {
+        input_nombre.classList.remove('error');
+    };
+
+    if (input_precio.value == '') {
+        error = true;
+        input_precio.classList.add('error');
+    } else {
+        input_precio.classList.remove('error');
+    };
+
+    if (input_descripcion.value == '') {
+        error = true;
+        input_descripcion.classList.add('error');
+    } else {
+        input_descripcion.classList.remove('error');
+    };
+
+    return error;
+};
 
 // function obtener_datos(){}
 let obtener_datos = () => {
@@ -15,10 +48,29 @@ let obtener_datos = () => {
     let precio = input_precio.value;
     let descripcion = input_descripcion.value;
 
-    console.log('código', codigo);
-    console.log('nombre', nombre);
-    console.log('precio', precio);
-    console.log('descripción', descripcion);
+    // Si hay error entra al if, si no hay error entra al else
+    if (validar()) {
+
+        Swal.fire({
+            type: 'warning',
+            title: 'Algunos de los campos se encuentran incorrectos',
+            text: 'Por favor revise los campos en rojo',
+            confirmButtonText: 'Entendido'
+        });
+
+
+
+    } else {
+        registrar_producto(codigo, nombre, precio, descripcion);
+        Swal.fire({
+            type: 'success',
+            title: 'Registro realizado con éxito',
+            text: 'El producto ha sido almacenado',
+            confirmButtonText: 'Entendido'
+        });
+    }
+
+
 };
 
 

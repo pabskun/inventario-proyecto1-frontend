@@ -53,3 +53,7 @@ form button:hover {
     font-weight: bold;
     cursor: pointer;
 }
+
+.error {
+    border: 2px solid #e74c3c;
+}

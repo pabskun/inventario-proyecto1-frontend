@@ -3,7 +3,7 @@
 let registrar_producto = async(codigo, nombre, precio, descripcion) => {
     await axios({
                 method: 'post',
-                url: 'http://localhost:3000/api/registrar-producto',
+                url: 'https://proyect01-inventario-produc.herokuapp.com/api/registrar-producto',
                 responseType: 'json',
                 //body
                 data: {
@@ -27,7 +27,7 @@ let listar_productos = async() => {
     let lista_productos;
     await axios({
             method: 'get',
-            url: 'http://localhost:3000/api/listar-productos',
+            url: 'https://proyect01-inventario-produc.herokuapp.com/api/listar-productos',
             responseType: 'json'
         })
         .then(function(res) {

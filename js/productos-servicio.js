@@ -39,3 +39,19 @@ let listar_productos = async() => {
         });
     return lista_productos;
 };
+
+let obtener_producto_id = async(pid) => {
+    try {
+
+        const response = await axios({
+            method: 'get',
+            params: { _id: pid },
+            url: `https://proyect01-inventario-produc.herokuapp.com/api/listar-producto-id`,
+            responseType: 'json'
+        });
+
+        return response.data.producto;
+    } catch (error) {
+        console.log(error);
+    }
+};

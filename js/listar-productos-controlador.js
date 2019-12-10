@@ -21,6 +21,18 @@ let llenar_tabla = async() => {
             fila.insertCell().innerHTML = lista_productos[i]['precio'];
             fila.insertCell().innerHTML = lista_productos[i]['descripcion'];
             fila.insertCell().innerHTML = lista_productos[i]['estado'];
+
+            let celda_editar = fila.insertCell();
+            let boton_editar = document.createElement('button');
+
+            boton_editar.innerText = 'Editar';
+            boton_editar.dataset._id = lista_productos[i]['_id'];
+            boton_editar.addEventListener('click', function() {
+                sessionStorage.setItem('_idproducto', this.dataset._id)
+                window.location.href = 'editar-producto.html';
+            });
+
+            celda_editar.appendChild(boton_editar);
         }
 
     };
